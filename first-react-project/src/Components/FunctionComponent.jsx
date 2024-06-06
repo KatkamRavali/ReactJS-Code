@@ -31,7 +31,7 @@ function FunctionComponent() {
     </div>
   );
 }
-
+// ---------------- Another Way of Writing ----------------------------
 /**
  * const FunctionComponent = () => {
   return (
