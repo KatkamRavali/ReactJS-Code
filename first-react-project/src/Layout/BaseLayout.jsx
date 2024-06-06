@@ -1,6 +1,6 @@
 import React from "react";
 
-const BasicLayoutPage =
+const BaseLayoutPage =
   (Component) =>
   (...props) => {
     return (
@@ -12,4 +12,4 @@ const BasicLayoutPage =
     );
   };
 
-export default BasicLayoutPage;
+export default BaseLayoutPage;

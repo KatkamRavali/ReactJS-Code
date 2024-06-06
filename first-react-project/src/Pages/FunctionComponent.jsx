@@ -1,36 +1,79 @@
+// -------- One method of Writing proops ----------
+/*
 import React, { useState } from "react";
-import BasicLayoutPage from "../Layouts/BasicLayout";
 
-function FunctionComponent() {
-  const [countInc, setCountInc] = useState(0);
-  const [countDec, setCountDec] = useState(0);
+import BaseLayoutPage from "../Layout/BaseLayout";
+
+const FunctionComponent = (props) => {
   const [count, setCount] = useState(0);
+  const [changeName, setChangeName] = useState("");
   const reduceCount = () => {
     setCount(count - 1);
   };
+  return (
+    <div>
+      <p>This is Functional Component</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me to increment/add by 1
+      </button>
+      <button onClick={reduceCount}>Click here to decrement </button>
+      <h2>{count}</h2>
+      <h4>
+        My company is:{props.name} it is of {props.age} years old and the course
+        would be {props.course}
+      </h4>
+      <input onChange={(e) => setChangeName(e.target.value)} />
+      <button onClick={() => props.setName(changeName)}>
+        Change name to...
+      </button>
+    </div>
+  );
+};
+
+export default BaseLayoutPage(FunctionComponent);
+*/
+
+//------------------ Second method of writing proops -----------------------------------
+
+import React, { useState } from "react";
+import BaseLayoutPage from "../Layout/BaseLayout";
+
+const FunctionComponent = (props) => {
+  const [count, setCount] = useState(0);
+  const [changeName, setChangeName] = useState("");
+  const reduceCount = () => {
+    setCount(count - 1);
+  };
+  const { name, age, course, setName } = props;
+  return (
+    <div>
+      <p>This is Functional Component</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me to increment/add by 1
+      </button>
+      <button onClick={reduceCount}>Click here to decrement </button>
+      <h2>{count}</h2>
+      <h4>
+        My company is:{name} it is of {age} years old and the course would be{" "}
+        {course}
+      </h4>
+      <input onChange={(e) => setChangeName(e.target.value)} />
+      <button onClick={() => setName(changeName)}>Change name to...</button>
+    </div>
+  );
+};
+
+export default BaseLayoutPage(FunctionComponent);
+
+// -------------- Third way of writing props ------------------------------
+/**
+import React, { useState } from "react";
+import BaseLayoutPage from "../Layout/BaseLayout";
+
+function FunctionComponent({ name, age, graduation, setName }) {
   const [changeName, setChangeName] = useState("");
   return (
     <div className="App">
-      <p> This is a Function Components </p>
-      {/* Increment the value */}
-      <button onClick={() => setCountInc(countInc + 1)}>
-        Click me to increment the value
-      </button>
-      <h2>{countInc}</h2>
-      <br />
-      {/* Decrement the value  */}
-      <button onClick={() => setCountDec(countDec - 1)}>
-        Click me to decrement the value
-      </button>
-      <h2>{countDec}</h2>
-      <br />
-      {/* Increase and Decrease both values in single button */}
-      <button onClick={() => setCount(count + 1)}>
-        click me for increase value
-      </button>
-      <button onClick={reduceCount}> click me for reduced value </button>
-      <h2>{count}</h2>
-
       <p>
         My name is <u>{name}</u> . I am <u>{age}</u> years old and I am
         currently pursing my graduation at <u> {graduation} </u>
@@ -39,20 +82,12 @@ function FunctionComponent() {
       <button onClick={() => setName(changeName)}>
         Click me to update the Name
       </button>
+      <br />
+      <br />
     </div>
   );
 }
 
-/**
- * const FunctionComponent = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p> This is a Function Components </p>
-      </header>
-    </div>
-  );
-}
- */
+export default BaseLayoutPage(FunctionComponent);
 
-export default BasicLayoutPage(FunctionComponent);
+*/

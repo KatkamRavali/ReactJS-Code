@@ -153,38 +153,37 @@ import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 
 // ------- Basic Layout --------
-import BasicLayoutPage from "./Layouts/BasicLayout";
+import BaseLayoutPage from "./Layout/BaseLayout";
 
 function App() {
+  const course = "Bsc Honors";
+  const [name, setName] = useState("Ravali Katkam");
   return (
-    <div className="App">
-      <header className="App-header">
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <BasicLayoutPage>
-                <ClassComponent />
-              </BasicLayoutPage>
-            }
-          />
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <BaseLayoutPage>
+            <ClassComponent />
+          </BaseLayoutPage>
+        }
+      />
 
-          <Route
-            path="/function-component"
-            element={
-              <BasicLayoutPage>
-                <FunctionComponent
-                  name={names}
-                  age={20}
-                  graduation="St Francis College for women"
-                  setName={setNames}
-                />
-              </BasicLayoutPage>
-            }
-          />
-        </Routes>
-      </header>
-    </div>
+      <Route
+        path="/function-component"
+        element={
+          <BaseLayoutPage>
+            <FunctionComponent
+              name={name}
+              age={20}
+              graduation="St Francis College for women"
+              course={course}
+              setName={setName}
+            />
+          </BaseLayoutPage>
+        }
+      />
+    </Routes>
   );
 }
 

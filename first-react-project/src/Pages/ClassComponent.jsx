@@ -1,22 +1,41 @@
-import React from "react";
-import BasicLayoutPage from "../Layouts/BasicLayout";
+// -------------- Normal Class Component ----------------
 
+/**
+import React from "react";
+import BaseLayoutPage from "./Layout/BaseLayout";
+
+class ClassComponent extends React.Component {
+  render() {
+    return (
+      <>
+        <p>This is class Components</p>
+      </>
+    );
+  }
+}
+
+export default BaseLayoutPage(ClassComponent);
+*/
+
+// ---------------- Class Component using Constructor -----------------
+import React from "react";
+import BaseLayoutPage from "../Layout/BaseLayout";
 class ClassComponent extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      name: "Devtown",
-      age: 12,
+      name: "Devtwon",
+      age: "5 years",
     };
   }
   render() {
     return (
-      <div className="App">
-        <p> This is the Class Components </p>
-      </div>
+      <>
+        <p>This is class Components</p>
+      </>
     );
   }
 }
 
-export default BasicLayoutPage(ClassComponent);
+export default BaseLayoutPage(ClassComponent);
