@@ -13,6 +13,7 @@ import { useState } from "react";
 
 function App() {
   const [name, setName] = useState("Ravali Katkam"); // --- updating a value ----
+  const [nameValue, setNameValue] = useState("Ravali Katkam");
   const [names, setNames] = useState("Ravali Katkam");
   return (
     <div className="App">
@@ -43,10 +44,10 @@ function App() {
 
         <p className="App-P"> Updating the data using button </p>
         <FunctionComponent3
-          name={name}
+          name={nameValue}
           age={20}
           graduation="St Francis College for women"
-          setName={setName}
+          setName={setNameValue}
         />
 
         <p className="App-P"> Updating the data using input </p>
