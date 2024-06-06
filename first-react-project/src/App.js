@@ -67,7 +67,7 @@ export default App;
  */
 
 // ---------------------------- Routes -------------------------------
-
+/**
 import "./App.css";
 
 import ClassComponent from "./Components/ClassComponent";
@@ -130,6 +130,56 @@ function App() {
                 graduation="St Francis College for women"
                 setName={setNames}
               />
+            }
+          />
+        </Routes>
+      </header>
+    </div>
+  );
+}
+
+export default App;
+*/
+
+// ------------------------------------- Layouts --------------------------------------------
+import "./App.css";
+
+import ClassComponent from "./Pages/ClassComponent";
+import FunctionComponent from "./Pages/FunctionComponent";
+
+import { Routes, Route } from "react-router-dom";
+
+// ---- Updating a value ----
+import { useState } from "react";
+
+// ------- Basic Layout --------
+import BasicLayoutPage from "./Layouts/BasicLayout";
+
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <BasicLayoutPage>
+                <ClassComponent />
+              </BasicLayoutPage>
+            }
+          />
+
+          <Route
+            path="/function-component"
+            element={
+              <BasicLayoutPage>
+                <FunctionComponent
+                  name={names}
+                  age={20}
+                  graduation="St Francis College for women"
+                  setName={setNames}
+                />
+              </BasicLayoutPage>
             }
           />
         </Routes>
