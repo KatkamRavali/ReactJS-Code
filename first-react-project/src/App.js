@@ -33,7 +33,7 @@ function App() {
             }
           />
           <Route
-            path="/updateUsigData"
+            path="/updateUsingData"
             element={
               <FunctionComponent2
                 name={name}
